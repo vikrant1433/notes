@@ -1,3 +1,16 @@
+# Use vimdiff as git mergetool
+## git config
+- add vimdiff as git mergetool to do that run the below commands
+```bash
+git config merge.tool vimdiff
+git config merge.conflictstyle diff3
+git config mergetool.prompt false
+```
+# Resolving merge conflict with vimdiff
+- `git mergetool`
+- Notes: `LOCAL` – this is file from the current branch `BASE` – common ancestor, how file looked before both changes `REMOTE` – file you are merging into your branch `MERGED` – merge result, this is what gets saved in the repo
+- move your cursor to a merge conflict area and then:
+> :diffget RE
 # changing remote urls
 - `git remote set-url origin https://github.com/USERNAME/OTHERREPOSITORY.git`
 # git status
