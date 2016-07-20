@@ -1,3 +1,5 @@
+## to turn buffer into tab pages
+- `:tab ball`
 ## to insert output of external command to current line
 - `:,!ls | wc -l `- this will insert the count of number of files in the current line
 ## to get the diff of two opened file side by side in vertical split
