@@ -1,3 +1,33 @@
+# to install tmux v2.0 on ubuntu 14.04
+```bash
+sudo apt-get update
+sudo apt-get install -y python-software-properties software-properties-common
+sudo add-apt-repository -y ppa:pi-rho/dev
+sudo apt-get update
+sudo apt-get install -y tmux=2.0-1~ppa1~t
+```
+
+# to maximize and restore current pane
+- `prefix + z` : to toggle maximize pane and unmaximize 
+
+# tmux cheat sheet
+- `https://gist.github.com/andreyvit/2921703`
+# tmux-yank
+## key bindings _not_ in copy mode
+- `prefix + y` :  copies text from the command line to clipboard.
+- `prefix + Y` (shift-y) : copy pane current working directory to system clipboard 
+## key bindings in copy mode
+- `y` - copy selection to system clipboard
+- `Y` (shift-y) - put selection - equivalent to copying a selection, and pasting it to the command line
+- `Alt-y` - performs both of the above: copy to system clipboard and put to command line (deprecated, not useful)
+# tmux plugin manager
+- [link]( https://github.com/tmux-plugins/tpm)
+- `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+## tpm key bindings
+- `prefix + I `: installs new plugins from github or any other git repository
+- `prefix + U` : updates plugin(s)
+- `prefix + alt + u` : remove/uninstall plugins not on the plugin list
+
 ## Basics
 
 ? get help
