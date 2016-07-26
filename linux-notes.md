@@ -1,3 +1,16 @@
+## sed
+* `-r` : using extended regular expressions  so that you don’t have to escape some of the regular expression characters (if you’re curious, they are `?+(){}`)
+* 
+## to copy file from one server to another using third pc 
+* scp -3 username1@remote_ip1:/path/to/src/  username2@remote_ip2:/path/to/destination/
+## permissions for ~/.ssh directory
+* The .ssh folder: 700 (drwx------)
+* The public key: 644 (-rw-r--r--)
+The private key: 600 (-rw-------)
+## to print the full path of a file
+* `readlink -f filename`
+## to exlude subfolders while copy a directory
+- rsync -arvu --exclude=/R1/A R1 /tmp/R7 : this will exclude R1/A subdirectory if leading /(slash) is not there then any subfolder name A will get excluded
 ## to update LS_COLORS
 - `wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors`
 short link for tx.sh on mars

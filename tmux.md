@@ -1,3 +1,5 @@
+# to swap panes
+- `prefix + {`
 # to install tmux v2.0 on ubuntu 14.04
 ```bash
 sudo apt-get update
