@@ -1,4 +1,4 @@
-# To print a range of lines of a file
+“ To print a range of lines of a file
 - `sed -n 'start_line_number, end_line_number p' input_file`
 # to extract text between two strings
 - `sed -n '/string1/,/string2/p' input_file`

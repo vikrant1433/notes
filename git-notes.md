@@ -1,3 +1,43 @@
+
+# a successful git branching model
+http://nvie.com/posts/a-successful-git-branching-model/
+* We consider `origin/master` to be the main branch where the source code of `HEAD` always reflects a production-ready state.
+* `origin/develop` to be the main branch where the source code of `HEAD` always reflects a state with the latest delivered development changes for the next release. Some would call this the “integration branch”. This is where any automatic nightly builds are built from.
+# to show remote git branches
+* `git branch -r`
+# git ls-tree -r master --name-only
+* list filename under version control for master branch
+# do not show untracked files in git status
+* git status --untracked-files=no
+alternative
+* git status -uno
+# Extract file from another branch.
+* git show <branch_name>:<file_name>
+# Remove entry in the global config.
+* git config --global --unset <entry-name>
+# Instantly browse your working repository in gitweb.
+* git instaweb [--local] [--httpd=<httpd>] [--port=<port>] [--browser=<browser>]
+# Open all conflicted files in an editor.
+* git diff --name-only | uniq | xargs $EDITOR
+# Commits in Branch1 that are not in Branch2
+* git log Branch1 ^Branch2
+# List ignored files.
+* git check-ignore *
+# list all the alias and configs.
+* git config --list
+# Restore deleted file.
+* git checkout <deleting_commit>^ -- <file_path>
+# Restore file to a specific commit-hash
+* git checkout <commit-ish> -- <file_path>
+# rename a branch
+* git branch -m <new-branch-name>
+alternative
+* git branch -m [<old-branch-name>] <new-branch-name>
+# update all submodules
+* git submodule foreach git pull
+alternative
+* git submodule update --init --recursive
+* git submodule update --remote
 # Use vimdiff as git mergetool
 ## git config
 - add vimdiff as git mergetool to do that run the below commands

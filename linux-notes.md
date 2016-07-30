@@ -1,3 +1,5 @@
+## to change the owner and group from one user to another
+* chown --from=old__owner:old_grp new_owner:new_group filename
 ## sed
 * `-r` : using extended regular expressions  so that you don’t have to escape some of the regular expression characters (if you’re curious, they are `?+(){}`)
 * 
@@ -158,12 +160,12 @@ IFS=’ ‘ is used to prevent striping leading/trailing spaces
 || [[ -n $line ]] prevents the last line from being ignored if it doesn't end with a \n (since read returns a non-zero exit code when it encounters EOF).
 
 In bash there should not be any space when assigning a value to a variable.
-E.g. a=”correct”
-       a= “wrong”
+E.g. a="correct"
+       a= "wrong"
 
 In bash
 basename give the folder name without full path
-E.g. a=”\tmp\folder_name”
+E.g. a="\tmp\folder_name"
 ->basename $a
 ->folder_name
 How to get the last field with cut:
@@ -202,24 +204,28 @@ http://stackoverflow.com/a/12992511/1685263
 
 In bash removing shortest match pattern from the front of the string 
 ${var#pattern}
-E.g. var=”1234567”;
+E.g. var="1234567";
 ```bash
 echo ${var#123} 		# 4567
 echo ${var#12*5}		#67
 ```
 To remove pattern from the back use % instead of #
 echo ${var%567}		# 1234
-echo ${var%4*7}		#123
+echo ${var%4\*7}		#123
 For longest match use ## and %%
-var=”0123456701234567”
+var="0123456701234567"
 ```bash
 echo ${var##0*4}		# 567
 echo ${var%%4*7}		# 0123
 ```
+
+Note: replacement string can be a bash variable
+e.g.
+var=${var/pattern/${replacement_var}}
 Finding and replacing string in bash
 Replace only first match
 ${var/pattern/replacement}
-var=”0123456789”
+var="0123456789"
 echo ${var/123/hello}		#0hello456789
 Replace all the matches
 ${var//pattern/replacement}
@@ -236,7 +242,7 @@ ${var:start_position:offset}
 If offset is +ve: extract the string from start_pos (0 base indexing) to start_position + offset
 If offset is -ve: extract the string from start_pos (0 base indexing) to length - |offset|
 ```bash
-var=”123456”
+var="123456"
 echo ${var:0}				# 123456
 echo ${var:1}				# 23456
 echo ${var:0:3}			# 123
@@ -251,7 +257,7 @@ Line1
 Line2
 EOM
 `
-echo “$Var”
+echo "$Var"
 
 Note: Use double quotes to preserve the newline in the string.
 

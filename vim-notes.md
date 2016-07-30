@@ -1,3 +1,12 @@
+## resizing windows
+* ctrl-w + and ctrl-w - resize the height of the current by a single row
+10 ctrl-w +  increase the height by 10 rows
+* ctrl-w > and ctrl-w < resize the he<Plug>(neocomplete_start_auto_complete)<Plug>(neocomplete_start_auto_complete)<Plug>(neocomplete_start_auto_com<Plug>(neocomplete_start_auto_complete)<Plug>(neocomplete_start_auto_complete)plete) of the current by a single row
+10 ctrl-w +  increase the he<Plug>(neocomplete_start_auto_complete) by 10 rows
+## to paste the word under Cursor to search line
+* `ctrl-r w`
+## to move back- and forward in the list of previous edit locations
+* use `g;` and `g,` to move back- and forward in the list of your previous edit locations
 ## to execute the current line in any program (e.g. bash)
 * `.w !bash` - this will write the current line into the stdin of bash program  here `.` can be any range of lines
 ## to execute the current line as an ex command
@@ -65,7 +74,7 @@
 to get out of diffmode `:diffoff!`
 ## to copy nth line and paste it on mth line 
 * `:4co.<CR>` copy 4th line from top and paste the content to current line
-* `:4co10<CR>` copy 4th line from top and paste the content to 10th line
+* `:4co10<CR>` copy 4th line from top and paste the content to 11th line
 
 ## to move nth line to kth line
 * `:4mo.<CR>` move 4th line from top and paste the content to current line
@@ -263,7 +272,7 @@ dsx delete surround takes one argument that can be any valid surround char.
 *  `a\``	a string in backticks (with backticks)		|v_a`|
 *  `i\``	inner string in backticks			|v_i`|
 
-*-------------------------------------------------------------------
+--------------------------------------------------------------------
 
 * viB from normal mode select inner text between `{}` parenthesis
 * vib from normal mode select inner text between `()` parenthesis
@@ -287,7 +296,7 @@ dsx delete surround takes one argument that can be any valid surround char.
 * `zf` create folding for selected lines
 * `zf#j`	create folding for #lines down
 * `zf#k`	create folding for #lines up
-*---------
+----------
 * `<leader>ig`     `,ig` - to toggle tab highlighting in vim
 * `gt` or `ctrl-page-up` - goto next tab
 * `gT` or `ctrl-page-down` - goto prev tab
