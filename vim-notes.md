@@ -1,8 +1,70 @@
+# vimdiff commands
+1. `]c` :        - next difference
+2. `[c` :        - previous difference
+3. `do`          - diff obtain
+4. `dp`          - diff put
+5. `zo`          - open folded text
+6. `zc`          - close folded text
+7. `:diffupdate` - re-scan the files for differences
+
+# http://javascript-coders.com/p/jancarloviray/spf13-vim
+# copy/delete/cut all lines
+- :%y - to copy
+- :%d - to delete
+# NERDTree-git-plugin
+# Configuration
+
+Use this variable to change symbols.
+```
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+```
+# fugitive plugin http//vimcasts.org/episodes/fugitive-vim-working-with-the-git-index/
+* `:Gwrite` - add the current file to staging area
+* `:Gread` - checkout the current file from index
+* `:Gedit :path/to/file` - open the index version of the file 
+* :Gdiff - performs a vimdiff against the index version of the file
+> **NOTE:** index file is on left side and working copy on the right side
+# fugitive key bindings
+```vim
+" fugitive git bindings
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>go :Git checkout<Space>
+nnoremap <space>gps :Dispatch! git push<CR>
+nnoremap <space>gpl :Dispatch! git pull<CR>
+```
+# piping the selected text to external command
+* `:'<,'>:w ! command <CR>`
+# sorting lines
+* `:{range}sort ` : sort the lines
+* `:{range}sort u` : sort the lines and select only unique lines
+* `:{range}sort n` : numerical sorting
+* 
 ## resizing windows
 * ctrl-w + and ctrl-w - resize the height of the current by a single row
 10 ctrl-w +  increase the height by 10 rows
-* ctrl-w > and ctrl-w < resize the he<Plug>(neocomplete_start_auto_complete)<Plug>(neocomplete_start_auto_complete)<Plug>(neocomplete_start_auto_com<Plug>(neocomplete_start_auto_complete)<Plug>(neocomplete_start_auto_complete)plete) of the current by a single row
-10 ctrl-w +  increase the he<Plug>(neocomplete_start_auto_complete) by 10 rows
+* `ctrl-w >` and `ctrl-w <` resize the height of the current by a single row
+10 `ctrl-w +`  increase the height by 10 rows
 ## to paste the word under Cursor to search line
 * `ctrl-r w`
 ## to move back- and forward in the list of previous edit locations
@@ -26,21 +88,23 @@
 ## change case of whole line
 * guu : convert the whole line to lower case
 * gUU : convert the whole line to upper case
-* g~~ : toggle the case of whole line 
+* `g~~` : toggle the case of whole line 
 
 ## help system
-* <c-]> : go to subject topic under the cursor
-* <c-t> : go to previous cursor location
+* `<c-]>` : go to subject topic under the cursor
+* `<c-t>` : go to previous cursor location
+### to get the help for subject under the cursor with `K` key
+* `nnoremap K :help <C-r><C-w><CR>`
 
 ## Searching
 * `/{pattern}/{offset}` search forward for the pattern and go offset lines up (if offset is -ve) or down (if offset is +ve)
 * `/<CR>` search forward for last search pattern
 ## screen movement commands
-* zz or z. center the screen on the cursor
-* zt scroll the screen so that the cursor is at the top
-* zb scroll the screen so that the cursor is at the bottom
+* `zz` or z. center the screen on the cursor
+* `zt` scroll the screen so that the cursor is at the top
+* `zb` scroll the screen so that the cursor is at the bottom
 
-## to windows operations
+## windows operations
 * `Ctrl+w, S` mirror the selected file in horizontal split
 * `Ctrl+w, v`  mirror the selected file in vertical split
 * `Ctrl+w, q` to close one
@@ -101,13 +165,13 @@ note:**instead of a single line a range of line can be used like :1,4co.**
 * Where `<Ctrl-V><Ctrl-M>` means type `Ctrl+V` then `Ctrl+M`.
 to convert the case of a word
 ======
-* gu{motion} - for lower case
-* gU{motion} - for upper case
+* `gu{motion}` - for lower case
+* `gU{motion}` - for upper case
 
 to increment and decrement numbers under the cursor
 ====
-* <c-a> : increment
-* <c-x> : decrement
+* `<c-a>` : increment
+* `<c-x>` : decrement
 -------------
 * `:g/pattern/cmd` : `g` will run the command on all the lines that match the pattern and `:v/pattern/cmd` or `:g!/pattern/cmd` will run the command which doesn't match the `pattern` e.g. `g/pattern/d` will delete all the lines that match the pattern `pattern`
 * `expand('string')` expands the vim string
@@ -119,9 +183,9 @@ to increment and decrement numbers under the cursor
 * `gcii` - to comment code at same indent level
 * `gcai` - to comment code at same indent level even if there are newlines
 ### to toggle case
-    - ~ - toggle case of selected characters
-    - U - in visual mode convert selected characters to UPPER case
-    - u - in visual mode convert selected characters to lower case
+    - `~` - toggle case of selected characters
+    - `U` - in visual mode convert selected characters to UPPER case
+    - `u` - in visual mode convert selected characters to lower case
 ### To go to previous editing buffer
     - `<C-^>` or `<C-6>` or `:b#`
 ### To apply airline theme
@@ -136,7 +200,7 @@ to increment and decrement numbers under the cursor
     - `g` - global
     - `c` - confirming
     - `i` - ignore case
-### Managing multiple files at onece
+### Managing multiple files at once
     - `:tabnew [file]`
     - `:tabm[ove]` # - move current tab to position # (zero-indexed), no argument = end
     - `:tabc[lose]` - close current file
@@ -162,10 +226,10 @@ to enter ^M press ctrl-v and ctrl-m
     - `{` and `}` - jump to the prev/next empty line.
 
 ### searching
-* \* - Word under cursor - forward (bounded)
-* # - Word under cursor - backward (bounded)
-* g\* - Word under cursor - forward (unbounded)
-* g# - Word under cursor - backward (unbounded)
+* `\*` - Word under cursor - forward (bounded)
+* `#` - Word under cursor - backward (bounded)
+* `g\*` - Word under cursor - forward (unbounded)
+* `g#` - Word under cursor - backward (unbounded)
 ### to display date in vim
 ```
     :nnoremap <F5> "=strftime("%c")<CR>P
@@ -210,12 +274,12 @@ Features to add:
 ### to source the .vimrc file
 * `:[so]urce /path/to/.vimrc`
 ### leader>c<space>
-e.g. <comma> c <space>
+e.g. `<comma> c <space>`
 
-* auto indenting gg=G
-* gg- go to start of 1st line
-* = - indent
-* G - upto last line
+* auto indenting `gg=G`
+* `gg` go to start of 1st line
+* `=` - indent
+* `G` - upto last line
 
 ### to run any command directly from the vim use ! followed by the command to be run.
 > e.g. ! wc %
@@ -229,24 +293,24 @@ e.g. <comma> c <space>
 > :set shell=/path/to/zsh
 
 ### vim-multiple-cursor
-* ctrl-n for selecting the word under the cursor and by pressing it again it will select the next occurrence of that word and create a virtual cursor
-* ctrl-p unselect the __current__ selection
-* ctrl-x unselect the current selection and select the next occurrence
+* `ctrl-n` for selecting the word under the cursor and by pressing it again it will select the next occurrence of that word and create a virtual cursor
+* `ctrl-p` unselect the __current__ selection
+* `ctrl-x` unselect the current selection and select the next occurrence
 
 ### surround.vim
-* csxx change surround takes two arguments 1st can be (,{,’,”,[ or a tag	second can be any replacement char as 1st argument
-* ysmx you surround takes two arguments 1st is any valid vim motion key and second is any valid surround char
-dsx delete surround takes one argument that can be any valid surround char.
+* `csxx` change surround takes two arguments 1st can be (,{,’,”,[ or a tag	second can be any replacement char as 1st argument
+* `ysmx` you surround takes two arguments 1st is any valid vim motion key and second is any valid surround char
+`dsx` delete surround takes one argument that can be any valid surround char.
 
-* J for joining lines convert \n to space
-* % means current file
-* a means all
-* i means inner
+* `J` for joining lines convert \n to space
+* `%` means current file
+* `a` means all
+* `i` means inner
 ### text objects
-* ax x can be {,[,’,”,\`,<
-* < left shift in normal mode (4 spaces)
-* right shift in normal mode (4 spaces)
-* at	a <tag> </tag> block (with tags)		|v_at|
+* `ax` x can be `` {,[,’,”,`,< ``
+* `<` left shift in normal mode (4 spaces)
+* `>` right shift in normal mode (4 spaces)
+* `at` a `<tag> </tag>` block (with tags)		|v_at|
 *  `aw`	a word (with white space)			|v_aw|
 *  `iw`	inner word					|v_iw|
 *  `aW`	a WORD (with white space)			|v_aW|
@@ -259,10 +323,10 @@ dsx delete surround takes one argument that can be any valid surround char.
 *  `ib`	inner () block					|v_ib|
 *  `aB`	a {} block (with braces)			|v_aB|
 *  `iB`	inner {} block					|v_iB|
-*  `at`	a <tag> </tag> block (with tags)		|v_at|
-*  `it`	inner <tag> </tag> block			|v_it|
-*  `a<`	a <> block (with <>)				|v_a<|
-*  `i<`	inner <> block					|v_i<|
+*  `at`	a `<tag> </tag>` block (with tags)		|v_at|
+*  `it`	inner `<tag> </tag>` block			|v_it|
+*  `a<`	a <\> block (with `<>`)				|v_a<|
+*  `i<`	inner `<>` block					|v_i<|
 *  `a[`	a [] block (with [])				|v_a[|
 *  `i[`	inner [] block					|v_i[|
 *  `a"`	a double quoted string (with quotes)		|v_aquote|
@@ -327,3 +391,15 @@ a WORD is defined as words separated by whitespace
 * [ vim-markdown ]( https://github.com/tpope/vim-markdown )
 ## todo
 * how to create snippets?
+# errors _arguments:450: _vim_files: function definition file not found
+* rm ~/.zcompdump*
+# load order of vimrc files
+1. `.vimrc.before` - spf13-vim before configuration
+2. `.vimrc.before.fork` - fork before configuration
+3. `.vimrc.before.local` - before user configuration
+4. `.vimrc.bundles` - spf13-vim bundle configuration
+5. `.vimrc.bundles.fork` - fork bundle configuration
+6. `.vimrc.bundles.local` - local user bundle configuration
+7. `.vimrc` - spf13-vim vim configuration
+8. `.vimrc.fork` - fork vim configuration
+9. `.vimrc.local` - local user configuration

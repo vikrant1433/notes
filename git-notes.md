@@ -1,9 +1,13 @@
-
+Toc
+# rename a remote
+* `git remote rename` `<old_remote_name>` `<new_remote_name>`
+#  see all the remote branches
+* git branch -a
 # a successful git branching model
 http://nvie.com/posts/a-successful-git-branching-model/
 * We consider `origin/master` to be the main branch where the source code of `HEAD` always reflects a production-ready state.
 * `origin/develop` to be the main branch where the source code of `HEAD` always reflects a state with the latest delivered development changes for the next release. Some would call this the “integration branch”. This is where any automatic nightly builds are built from.
-# to show remote git branches
+# show remote git branches
 * `git branch -r`
 # git ls-tree -r master --name-only
 * list filename under version control for master branch
@@ -53,7 +57,7 @@ git config mergetool.prompt false
 > :diffget RE
 # changing remote urls
 - `git remote set-url origin https://github.com/USERNAME/OTHERREPOSITORY.git`
-# git status
+# git short status
 - `git status -s` or `git stage --short` : display filenames and their tracking status
 ```bash
 $git  status -s
@@ -69,7 +73,7 @@ M    lib/simplegit.rb
 to stage only modified files
 ========
 - git add -u
-# to make git diff use vimdiff for viewing the git diff of two files
+# make git diff use vimdiff for viewing the git diff of two files
 - git config --global diff.tool vimdiff
 - git config --global difftool.prompt false
 - git config --global alias.d difftool

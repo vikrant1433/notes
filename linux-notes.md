@@ -1,3 +1,8 @@
+## show crontab jobs
+* `crontab -l`
+## How to kill a process running on particular port in Linux?
+* `fuser 8080/tcp` will print PID of process bound on port 8080.
+* `fuser -k 8080/tcp` will kill the application bound to port 8080.
 ## to change the owner and group from one user to another
 * chown --from=old__owner:old_grp new_owner:new_group filename
 ## sed

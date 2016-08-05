@@ -1,12 +1,23 @@
+# tmux-copycat plugin key bindings
+* `prefix + ctrl-f` - simple file search
+* `prefix + ctrl-g` - jumping over git status files (best used after git status command)
+* `prefix + alt-h` - jumping over SHA-1 hashes (best used after git log command)
+* `prefix + ctrl-u` - url search (http, ftp and git urls)
+* `prefix + ctrl-d` - number search (mnemonic d, as digit)
+* `prefix + alt-i` - ip address search
+# session
+
+* rename session 
+* `prefix + $` 
 # to swap panes
 - `prefix + {`
 # to install tmux v2.0 on ubuntu 14.04
 ```bash
 sudo apt-get update
-sudo apt-get install -y python-software-properties software-properties-common
-sudo add-apt-repository -y ppa:pi-rho/dev
+sudo apt-get install  python-software-properties software-properties-common -y
+sudo add-apt-repository ppa:pi-rho/dev -y
 sudo apt-get update
-sudo apt-get install -y tmux=2.0-1~ppa1~t
+sudo apt-get install  tmux=2.0-1~ppa1~t -y
 ```
 
 # to maximize and restore current pane
