@@ -1,3 +1,7 @@
+# date in YYYY-MM-DD format
+date +%F
+# to show the information of the process with know pid
+* ps -p 1337 -o comm=
 ## show crontab jobs
 * `crontab -l`
 ## How to kill a process running on particular port in Linux?
@@ -154,12 +158,12 @@ To copy files from remote host:
     echo "File not found!" 
     fi
 ```
-
-How to read line by line in bash
-while IFS='' read -r line || [[ -n "$line" ]]; do
-    echo "$line"
-done < "$1"
-
+```bash
+    #  How to read line by line in bash
+    while IFS='' read -r line || [[ -n "$line" ]]; do
+        echo "$line"
+    done < "$1"
+```
 -r is used to prevent treating backslash as a special character
 IFS=’ ‘ is used to prevent striping leading/trailing spaces
 || [[ -n $line ]] prevents the last line from being ignored if it doesn't end with a \n (since read returns a non-zero exit code when it encounters EOF).

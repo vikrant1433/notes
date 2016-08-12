@@ -1,3 +1,5 @@
+# rotate windows
+- prefix + <alt>-o
 # tmux-copycat plugin key bindings
 * `prefix + ctrl-f` - simple file search
 * `prefix + ctrl-g` - jumping over git status files (best used after git status command)

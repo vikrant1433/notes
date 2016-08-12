@@ -1,4 +1,7 @@
-Toc
+# to show file names which are changed in two revisions
+* `git diff --name-status master..branchName`
+# to compare a file from different branch
+* `git diff firstbranch secondbranch -- /path/to/file`
 # rename a remote
 * `git remote rename` `<old_remote_name>` `<new_remote_name>`
 #  see all the remote branches

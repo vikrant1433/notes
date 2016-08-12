@@ -1,3 +1,8 @@
+# conflict-marker
+* to jump among conflict markers `[x` `]x`
+* `ct` `ConflictMarkerThemselves` for themselves, `co` for ourselves, `:ConflictMarkerOurselves` `cn` `:ConflictMarkerNone` for none and `cb` `:ConflictMarkerBoth`  for both
+# generate sequence number
+* :linenumber ! seq start_num end_number
 # vimdiff commands
 1. `]c` :        - next difference
 2. `[c` :        - previous difference
